@@ -1,3 +1,6 @@
+import sys
+
+
 class Bidder:
 
 	def __init__(self, name):
@@ -10,12 +13,12 @@ class Bidder:
 
 class Apartment:
 
-	def __init__(self, num_rooms, rent, bidders = [], increment = 5):
+	def __init__(self, num_rooms, rent, increment = 5):
 		self.rooms = range(num_rooms)
 		self.rent = range(num_rooms)
 		self.numBids = range(num_rooms)
 		self.increment = increment
-		self.bidders = bidders
+
 		for i in range(num_rooms):
 			self.rooms[i] += 1
 			self.rent[i] = rent
@@ -25,14 +28,29 @@ class Apartment:
 	def updatePrices(self, bids):
 		
 		for i in range(bids):
-			if(len(bids[i])==0):
+			if len(bids[i])==0:
 				self.rent[i] -= 5
-			elif(len(bids[i])==1):
+			elif len(bids[i])==1:
 				a = self.rent.pop(i)
 				self.cleared + (i, a[0])
 				self.bidders.remove(a[0])
 
 			else:
 				self.rent[i] += len(bids[i])*5
+
+
+if  __name__ == "__main__":
+	num_rooms = sys.argv[0]
+	rent = sys.argv[1]
+	apartment = Apartment(num_rooms, rent)
+	occupants = []
+	i = 0
+	while i < num_rooms
+		try:
+			occupant = raw_input("Enter the name of bidder " + str(i+1) + ".")
+			occupants[i] = occupant
+			i+=1
+		except TypeErrror:
+			print "Only names in english are accepted. Please type in the correct name."
 
 	
